@@ -19,7 +19,6 @@ namespace TinyCompile{
 		UNKNOWN		//δ֪
 	};
 
-	//typedef std::map<TokenAttr, std::string> TokenAttrDict;
 	class TokenAttrDictInstance{
 	private:
 		typedef std::map<TokenAttr, std::string> TokenAttrDict;
@@ -27,7 +26,6 @@ namespace TinyCompile{
 		static std::shared_ptr<TokenAttrDict> pInstance;
 	public:
 		static std::shared_ptr<TokenAttrDict> getInstance();
-		//std::string getTokenAttrString(const TokenAttr attr) const;
 	};
 }
 

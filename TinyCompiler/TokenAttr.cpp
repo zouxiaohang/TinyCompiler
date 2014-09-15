@@ -23,9 +23,4 @@ namespace TinyCompile{
 			return pInstance;
 		}
 
-	/*std::string TokenAttrDictInstance::getTokenAttrString(const TokenAttr attr) const{
-		assert(pInstance);
-
-		return (*pInstance)[attr];
-	}*/
 }
