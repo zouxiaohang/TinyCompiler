@@ -32,6 +32,9 @@
     <ClCompile Include="TokenAttr.cpp">
       <Filter>Token</Filter>
     </ClCompile>
+    <ClCompile Include="KeyWord.cpp">
+      <Filter>KeyWord</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="KeyWord.h">

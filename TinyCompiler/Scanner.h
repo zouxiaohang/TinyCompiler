@@ -27,10 +27,33 @@ namespace TinyCompile{
 		std::string fileName_;
 		//缓存源码
 		std::string code_;
-		//std::vector<Token> tokens_;
+		//记录当前解析到的源码的位置
+		std::string::const_iterator citer;
 	private:
 		//打开文件，将文件的全部源码缓存至code_中
 		bool openFile();
+		//清空Scanner的内部状态
+		//每次处理完一个文件的全部词素后调用
+		void clear();
+		//跳过每一行的前导空白
+		void skipBlank(std::string::const_iterator& cit, size_t& location);
+
+		//处理开始的情况
+		void handleBegin();
+		//处理关键字
+		void handleKeyWord();
+		//处理分隔符
+		void handleDelimiter();
+		//处理整数
+		void handleInteger();
+		//处理浮点数
+		void handleReal();
+		//处理字符串
+		void handleString();
+		//处理变量
+		void handleVariable();
+		//处理结束的情况
+		void handleEnd();
 	protected:
 		void setPhrase(const ScanPhrase phrase);
 		ScanPhrase getPhrase() const;
