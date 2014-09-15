@@ -17,7 +17,8 @@ namespace TinyCompiler{
 			IN_STRING,		//处理字符串
 			IN_INTEGER,		//处理整数
 			IN_REAL,		//处理浮点数
-			IN_DELIMITER,	//处理分隔符
+			IN_SINGLEDELIMITER,	//处理单分隔符
+			IN_DOUBLEDELIMITER, //处理双分隔符
 			IN_VARIALBE,	//处理变量
 			END				//结束
 		};
@@ -40,8 +41,6 @@ namespace TinyCompiler{
 		void clear();
 		//跳过每一行的前导空白
 		void skipBlank();
-		//是单分隔符
-		bool isSingleDelimiter(const char ch);
 		//是双分隔符
 		bool isDoubleDelimter(const char ch);
 
@@ -49,8 +48,10 @@ namespace TinyCompiler{
 		void handleBegin(std::string& tokenName, TokenAttr& tokenAttr);
 		//处理关键字
 		void handleKeyWord(std::string& tokenName, TokenAttr& tokenAttr);
-		//处理分隔符
-		void handleDelimiter(std::string& tokenName, TokenAttr& tokenAttr);
+		//处理单分隔符
+		void handleSingleDelimiter(std::string& tokenName, TokenAttr& tokenAttr);
+		//处理双分隔符
+		void handleDoubleDelimiter(std::string& tokenName, TokenAttr& tokenAttr);
 		//处理整数
 		void handleInteger(std::string& tokenName, TokenAttr& tokenAttr);
 		//处理浮点数

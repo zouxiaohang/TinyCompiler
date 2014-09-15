@@ -48,7 +48,13 @@ namespace TinyCompiler{
 		}
 		return false;
 	}
-
+	bool Scanner::isDoubleDelimter(const char ch){
+		if (ch == '>' || ch == '+' || ch == '-' ||
+			ch == '<' || ch == '=' || ch == '&' ||
+			ch == '|')
+			return true;
+		return false;
+	}
 	void Scanner::skipBlank(){
 		for (; citer_ != code_.cend() && *citer_ != EOF; ){
 			if (std::isblank(*citer_) || *citer_ == '\n'){
@@ -70,8 +76,8 @@ namespace TinyCompiler{
 			this->phrase_ = ScanPhrase::IN_VARIALBE;
 		}else if (*(citer_) == '\"' || *(citer_) == '\''){//是双引号或单引号
 			this->phrase_ = ScanPhrase::IN_STRING;
-		}else{//其他情况为分隔符
-			this->phrase_ = ScanPhrase::IN_DELIMITER;
+		}else{//其他情况下先视为单分隔符
+			this->phrase_ = ScanPhrase::IN_SINGLEDELIMITER;
 		}
 		tokenName += *(citer_);
 		++(citer_);
@@ -131,11 +137,20 @@ namespace TinyCompiler{
 		tokenAttr = TokenAttr::KEYWORD;
 		this->phrase_ = ScanPhrase::END;
 	}
-	void Scanner::handleDelimiter(std::string& tokenName, TokenAttr& tokenAttr){
+	void Scanner::handleSingleDelimiter(std::string& tokenName, TokenAttr& tokenAttr){
+		if (isDoubleDelimter(*citer_)){//是双分隔符
+			tokenName += *citer_;
+			++citer_;
+			this->phrase_ = ScanPhrase::IN_DOUBLEDELIMITER;
+		}else{
+			tokenAttr = TokenAttr::DELIMITER;
+			this->phrase_ = ScanPhrase::END;
+		}
+	}
+	void Scanner::handleDoubleDelimiter(std::string& tokenName, TokenAttr& tokenAttr){
 		tokenAttr = TokenAttr::DELIMITER;
 		this->phrase_ = ScanPhrase::END;
 	}
-
 	Token Scanner::handleEnd(std::string& name, 
 							const TokenAttr tokenAttr, 
 							const size_t location){
@@ -153,8 +168,11 @@ namespace TinyCompiler{
 			case ScanPhrase::BEGIN:
 				handleBegin(tokenName, tokenAttr);
 				break;
-			case ScanPhrase::IN_DELIMITER:
-				handleDelimiter(tokenName, tokenAttr);
+			case ScanPhrase::IN_SINGLEDELIMITER:
+				handleSingleDelimiter(tokenName, tokenAttr);
+				break;
+			case ScanPhrase::IN_DOUBLEDELIMITER:
+				handleDoubleDelimiter(tokenName, tokenAttr);
 				break;
 			case ScanPhrase::IN_INTEGER:
 				handleInteger(tokenName, tokenAttr);

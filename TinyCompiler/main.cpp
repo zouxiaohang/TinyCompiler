@@ -6,7 +6,7 @@ using namespace std;
 
 int main(){
 
-	TinyCompiler::Scanner s("C:\\Users\\zxh\\Desktop\\nginx.c");
+	TinyCompiler::Scanner s("C:\\Users\\zxh\\Desktop\\test.c");
 	TinyCompiler::Token tok;
 	while ((tok = s.getNextToken()).getTokenAttr() != TinyCompiler::TokenAttr::UNKNOWN){
 		cout << tok.getName() << endl;
