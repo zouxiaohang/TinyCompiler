@@ -1,6 +1,7 @@
 #ifndef _SCANNER_H_
 #define _SCANNER_H_
 
+#include <cassert>
 #include <vector>
 #include <string>
 
@@ -28,9 +29,9 @@ namespace TinyCompiler{
 		//缓存源码
 		std::string code_;
 		//记录当前解析到的源码的位置
-		std::string::const_iterator citer;
+		std::string::const_iterator citer_;
 		//记录词素所在文件中的行数
-		size_t location;
+		size_t location_;
 	private:
 		//打开文件，将文件的全部源码缓存至code_中
 		bool openFile();
@@ -38,7 +39,11 @@ namespace TinyCompiler{
 		//每次处理完一个文件的全部词素后调用
 		void clear();
 		//跳过每一行的前导空白
-		void skipBlank(std::string::const_iterator& cit, size_t& location);
+		void skipBlank();
+		//是单分隔符
+		bool isSingleDelimiter(const char ch);
+		//是双分隔符
+		bool isDoubleDelimter(const char ch);
 
 		//处理开始的情况
 		void handleBegin(std::string& tokenName, TokenAttr& tokenAttr);
@@ -65,7 +70,9 @@ namespace TinyCompiler{
 		std::string getFileName() const;
 	public:
 		explicit Scanner(const std::string& fileName) 
-			:fileName_(fileName), phrase_(ScanPhrase::BEGIN), location(1){}
+			:fileName_(fileName), phrase_(ScanPhrase::BEGIN), location_(1){
+			assert(openFile());
+		}
 
 		//一次性将全部的词素分出来
 		std::vector<Token> getTokens();

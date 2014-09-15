@@ -38,7 +38,7 @@ namespace TinyCompiler{
 		void setLocation(const size_t location);
 		size_t getLocation() const;
 
-		void dumpToken(std::ostream& os) const;
+		void dumpToken(std::ostream& os = std::cout) const;
 	};
 }
 

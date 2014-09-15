@@ -1,7 +1,7 @@
-#include "KeyWord.h"
+//#include "KeyWord.h"
 
 namespace TinyCompiler{
-	KeyWordDict keyWordDict = {
+	/*KeyWordDict keyWordDict = {
 		{ "break" },
 		{ "case" },
 		{ "char" },
@@ -28,5 +28,5 @@ namespace TinyCompiler{
 		{ "unsigned" },
 		{ "void" },
 		{ "while" },
-	};
+	};*/
 }

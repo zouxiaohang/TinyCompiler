@@ -1,6 +1,7 @@
 #include "Token.h"
 
 namespace TinyCompiler{
+
 	void Token::setName(const std::string& name){
 		this->name_ = name;
 	}
@@ -26,12 +27,12 @@ namespace TinyCompiler{
 		return this->location_;
 	}
 
-	void Token::dumpToken(std::ostream& os = std::cout) const{
-		os << "Token: " << "{"
-			<< "name = " << this->name_
-			<< "attr = " << (*(TokenAttrDictInstance::getInstance()))[this->tokenAttr_]
-			<< "file = " << this->fileName_
-			<< "loc = " << this->location_
+	void Token::dumpToken(std::ostream& os) const{
+		os << "Token: " << "{" << std::endl
+			<< "name = " << this->name_ << std::endl
+			<< "attr = " << (*(TokenAttrDictInstance::getInstance()))[this->tokenAttr_] << std::endl
+			<< "file = " << this->fileName_ << std::endl
+			<< "loc = " << this->location_ << std::endl
 			<< "}" << std::endl;
 	}
 }

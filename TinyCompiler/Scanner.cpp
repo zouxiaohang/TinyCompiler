@@ -1,4 +1,3 @@
-#include <cassert>
 #include <cctype>
 #include <fstream>
 #include <iostream>
@@ -6,7 +5,7 @@
 #include "KeyWord.h"
 #include "Scanner.h"
 
-extern TinyCompiler::KeyWordDict keyWordDict;
+//extern TinyCompiler::KeyWordDict keyWordDict;
 
 namespace TinyCompiler{
 	void Scanner::setPhrase(const ScanPhrase phrase){
@@ -27,7 +26,7 @@ namespace TinyCompiler{
 
 	void Scanner::clear(){
 		this->code_ = "";
-		this->citer = this->code_.cbegin();
+		citer_ = this->code_.cbegin();
 		this->fileName_ = "";
 		this->phrase_ = ScanPhrase::BEGIN;
 	}
@@ -43,20 +42,20 @@ namespace TinyCompiler{
 			//调整code_的空间以完全容纳全部源码
 			this->code_.resize(length);
 			in.read(&(this->code_[0]), this->code_.size());
-			this->citer = code_.cbegin();
+			citer_ = code_.cbegin();
 			in.close();
 			return true;
 		}
 		return false;
 	}
 
-	void Scanner::skipBlank(std::string::const_iterator& cit, size_t& location){
-		for (; *cit != EOF; ){
-			if (std::isblank(*cit) || *cit == '\n'){
-				if (*cit == '\n'){
-					++location;
+	void Scanner::skipBlank(){
+		for (; citer_ != code_.cend() && *citer_ != EOF; ){
+			if (std::isblank(*citer_) || *citer_ == '\n'){
+				if (*citer_ == '\n'){
+					++location_;
 				}
-				++cit;
+				++citer_;
 			}
 			else{
 				break;
@@ -65,35 +64,35 @@ namespace TinyCompiler{
 	}
 
 	void Scanner::handleBegin(std::string& tokenName, TokenAttr& tokenAttr){
-		if (std::isdigit(*(this->citer))){//是数字
+		if (std::isdigit(*(citer_))){//是数字
 			this->phrase_ = ScanPhrase::IN_INTEGER;
-		}else if(std::isalpha(*(this->citer))){//是字母
+		}else if(std::isalpha(*(citer_)) || *citer_ == '_'){//是字母或下划线
 			this->phrase_ = ScanPhrase::IN_VARIALBE;
-		}else if (*(this->citer) == '\"' || *(this->citer) == '\''){//是双引号或单引号
+		}else if (*(citer_) == '\"' || *(citer_) == '\''){//是双引号或单引号
 			this->phrase_ = ScanPhrase::IN_STRING;
-		}else{
+		}else{//其他情况为分隔符
 			this->phrase_ = ScanPhrase::IN_DELIMITER;
 		}
-		tokenName += *(this->citer);
-		++(this->citer);
+		tokenName += *(citer_);
+		++(citer_);
 	}
 	void Scanner::handleString(std::string& tokenName, TokenAttr& tokenAttr){
-		if (*(this->citer) != '\"' || *(this->citer) != '\''){
-			tokenName += *(this->citer);
-			++(this->citer);
+		if (*(citer_) != '\"' && *(citer_) != '\''){
+			tokenName += *(citer_);
+			++(citer_);
 			this->phrase_ = ScanPhrase::IN_STRING;
 		}
 		else{
-			tokenName += *(this->citer);
-			++(this->citer);
+			tokenName += *(citer_);
+			++(citer_);
 			tokenAttr = TokenAttr::STRING;
 			this->phrase_ = ScanPhrase::END;
 		}
 	}
 	void Scanner::handleReal(std::string& tokenName, TokenAttr& tokenAttr){
-		if (isdigit(*(this->citer))){//任然是数字
-			tokenName += *(this->citer);
-			++(this->citer);
+		if (isdigit(*(citer_))){//任然是数字
+			tokenName += *(citer_);
+			++(citer_);
 			this->phrase_ = ScanPhrase::IN_REAL;
 		}else{
 			tokenAttr = TokenAttr::REAL;
@@ -101,13 +100,13 @@ namespace TinyCompiler{
 		}
 	}
 	void Scanner::handleInteger(std::string& tokenName, TokenAttr& tokenAttr){
-		if (isdigit(*(this->citer))){//任然是数字
-			tokenName += *(this->citer);
-			++(this->citer);
+		if (isdigit(*(citer_))){//任然是数字
+			tokenName += *(citer_);
+			++(citer_);
 			this->phrase_ = ScanPhrase::IN_INTEGER;
-		}else if (*(this->citer) == '.'){//出现小数点
-			tokenName += *(this->citer);
-			++(this->citer);
+		}else if (*(citer_) == '.'){//出现小数点
+			tokenName += *(citer_);
+			++(citer_);
 			this->phrase_ = ScanPhrase::IN_REAL;
 		}else{
 			tokenAttr = TokenAttr::INTEGER;
@@ -115,9 +114,9 @@ namespace TinyCompiler{
 		}
 	}
 	void Scanner::handleVariable(std::string& tokenName, TokenAttr& tokenAttr){
-		if (std::isalpha(*(this->citer))){//任然是字母
-			tokenName += *(this->citer);
-			++(this->citer);
+		if (std::isalpha(*(citer_)) || *citer_ == '_'){//任然是字母或下划线
+			tokenName += *(citer_);
+			++(citer_);
 			this->phrase_ = ScanPhrase::IN_VARIALBE;
 		}else{
 			if (keyWordDict.count(tokenName) != 0){//变量为关键字
@@ -144,14 +143,12 @@ namespace TinyCompiler{
 	}
 
 	Token Scanner::getNextToken(){
-		assert(openFile());
-
 		this->phrase_ = ScanPhrase::BEGIN;
 		std::string tokenName;
 		TokenAttr tokenAttr = TokenAttr::UNKNOWN;
 
-		skipBlank(this->citer, this->location);//跳过前导空白
-		while (this->citer != code_.cend() && *(this->citer) != EOF){
+		skipBlank();//跳过前导空白
+		while (citer_ != code_.cend() && *(citer_) != EOF){
 			switch (this->phrase_){
 			case ScanPhrase::BEGIN:
 				handleBegin(tokenName, tokenAttr);
@@ -161,6 +158,7 @@ namespace TinyCompiler{
 				break;
 			case ScanPhrase::IN_INTEGER:
 				handleInteger(tokenName, tokenAttr);
+				break;
 			case ScanPhrase::IN_KEYWORD:
 				handleKeyWord(tokenName, tokenAttr);
 				break;
@@ -175,8 +173,10 @@ namespace TinyCompiler{
 				break;
 
 			case ScanPhrase::END:
-				return handleEnd(tokenName, tokenAttr, this->location);
+				auto tok = handleEnd(tokenName, tokenAttr, location_);
+				return tok;
 			}
+			//++citer_;
 		}
 		return Token("", TokenAttr::UNKNOWN, "", -1);
 	}
