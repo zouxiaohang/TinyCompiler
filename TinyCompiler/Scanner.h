@@ -6,7 +6,7 @@
 
 #include "Token.h"
 
-namespace TinyCompile{
+namespace TinyCompiler{
 
 	class Scanner{
 	private:
@@ -29,6 +29,8 @@ namespace TinyCompile{
 		std::string code_;
 		//记录当前解析到的源码的位置
 		std::string::const_iterator citer;
+		//记录词素所在文件中的行数
+		size_t location;
 	private:
 		//打开文件，将文件的全部源码缓存至code_中
 		bool openFile();
@@ -39,19 +41,19 @@ namespace TinyCompile{
 		void skipBlank(std::string::const_iterator& cit, size_t& location);
 
 		//处理开始的情况
-		void handleBegin(std::string& tokenName);
+		void handleBegin(std::string& tokenName, TokenAttr& tokenAttr);
 		//处理关键字
-		void handleKeyWord(std::string& tokenName);
+		void handleKeyWord(std::string& tokenName, TokenAttr& tokenAttr);
 		//处理分隔符
-		void handleDelimiter(std::string& tokenName);
+		void handleDelimiter(std::string& tokenName, TokenAttr& tokenAttr);
 		//处理整数
-		void handleInteger(std::string& tokenName);
+		void handleInteger(std::string& tokenName, TokenAttr& tokenAttr);
 		//处理浮点数
-		void handleReal(std::string& tokenName);
+		void handleReal(std::string& tokenName, TokenAttr& tokenAttr);
 		//处理字符串
-		void handleString(std::string& tokenName);
+		void handleString(std::string& tokenName, TokenAttr& tokenAttr);
 		//处理变量
-		void handleVariable(std::string& tokenName);
+		void handleVariable(std::string& tokenName, TokenAttr& tokenAttr);
 		//处理结束的情况
 		Token handleEnd(std::string& name,
 						const TokenAttr tokenAttr,
@@ -63,7 +65,7 @@ namespace TinyCompile{
 		std::string getFileName() const;
 	public:
 		explicit Scanner(const std::string& fileName) 
-			:fileName_(fileName), phrase_(ScanPhrase::BEGIN){}
+			:fileName_(fileName), phrase_(ScanPhrase::BEGIN), location(1){}
 
 		//一次性将全部的词素分出来
 		std::vector<Token> getTokens();

@@ -1,10 +1,6 @@
-#include <set>
-#include <string>
-
 #include "KeyWord.h"
 
 namespace TinyCompiler{
-	typedef std::set<std::string> KeyWordDict;
 	KeyWordDict keyWordDict = {
 		{ "break" },
 		{ "case" },

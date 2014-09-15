@@ -6,7 +6,7 @@
 #include <string>
 #include <utility>
 
-namespace TinyCompile{
+namespace TinyCompiler{
 	//´ÊËØÊôĞÔ
 	enum class TokenAttr{
 		KEYWORD,	//¹Ø¼ü×Ö

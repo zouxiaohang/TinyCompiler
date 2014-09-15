@@ -6,7 +6,7 @@
 
 #include "TokenAttr.h"
 
-namespace TinyCompile{
+namespace TinyCompiler{
 
 	//¥ Àÿ¿‡
 	class Token{

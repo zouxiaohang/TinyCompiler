@@ -1,6 +1,9 @@
 #ifndef _KEYWORD_H_
 #define _KEYWORD_H_
 
+#include <set>
+#include <string>
+
 namespace TinyCompiler{
 
 	//代码定义的关键字
@@ -33,6 +36,7 @@ namespace TinyCompiler{
 		WHILE
 	};
 
+	typedef std::set<std::string> KeyWordDict;
 }
 
 #endif

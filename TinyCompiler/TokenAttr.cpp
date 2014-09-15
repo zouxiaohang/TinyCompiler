@@ -2,7 +2,7 @@
 
 #include "TokenAttr.h"
 
-namespace TinyCompile{
+namespace TinyCompiler{
 	
 	std::shared_ptr<TokenAttrDictInstance::TokenAttrDict> 
 		TokenAttrDictInstance::pInstance = nullptr;

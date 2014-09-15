@@ -1,6 +1,6 @@
 #include "Token.h"
 
-namespace TinyCompile{
+namespace TinyCompiler{
 	void Token::setName(const std::string& name){
 		this->name_ = name;
 	}
