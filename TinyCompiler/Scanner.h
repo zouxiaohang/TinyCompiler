@@ -39,21 +39,23 @@ namespace TinyCompile{
 		void skipBlank(std::string::const_iterator& cit, size_t& location);
 
 		//处理开始的情况
-		void handleBegin();
+		void handleBegin(std::string& tokenName);
 		//处理关键字
-		void handleKeyWord();
+		void handleKeyWord(std::string& tokenName);
 		//处理分隔符
-		void handleDelimiter();
+		void handleDelimiter(std::string& tokenName);
 		//处理整数
-		void handleInteger();
+		void handleInteger(std::string& tokenName);
 		//处理浮点数
-		void handleReal();
+		void handleReal(std::string& tokenName);
 		//处理字符串
-		void handleString();
+		void handleString(std::string& tokenName);
 		//处理变量
-		void handleVariable();
+		void handleVariable(std::string& tokenName);
 		//处理结束的情况
-		void handleEnd();
+		Token handleEnd(std::string& name,
+						const TokenAttr tokenAttr,
+						const size_t location);
 	protected:
 		void setPhrase(const ScanPhrase phrase);
 		ScanPhrase getPhrase() const;
