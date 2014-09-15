@@ -76,7 +76,7 @@ namespace TinyCompiler{
 		}
 
 		//一次性将全部的词素分出来
-		std::vector<Token> getTokens();
+		std::vector<Token> getTokens();//TODO
 		//将词素一个一个的分出来
 		Token getNextToken();
 	};

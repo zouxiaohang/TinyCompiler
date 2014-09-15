@@ -198,4 +198,13 @@ namespace TinyCompiler{
 		}
 		return Token("", TokenAttr::UNKNOWN, "", -1);
 	}
+
+	std::vector<Token> Scanner::getTokens(){
+		std::vector<Token> toks;
+		Token tok;
+		while ((tok = getNextToken()).getTokenAttr() != TokenAttr::UNKNOWN){
+			toks.push_back(tok);
+		}
+		return toks;
+	}
 }
