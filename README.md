@@ -1,10 +1,10 @@
 TinyCompiler
 ============
-#####TinyCompiler是一款能编译一个经过裁剪的C语言的子的简易编译器，采用了C++11编写
+####TinyCompiler是一款能编译一个经过裁剪的C语言的子的简易编译器，采用了C++11编写
 
-#####编译环境：VS2013或以上
+####编译环境：VS2013或以上
 
-######词法测试代码(选择了lua源码中的lmem.c文件并经过了删除不符合TinyCompiler词法的部分)：
+#####词法测试代码(选择了lua源码中的lmem.c文件并经过了删除不符合TinyCompiler词法的部分)：
 <pre><code>
 void *luaM_growaux_ (lua_State *L, void *block, int *size, size_t size_elems,
                      int limit, const char *errormsg) {
@@ -39,7 +39,7 @@ void *luaM_realloc_ (lua_State *L, void *block, size_t osize, size_t nsize) {
   return block;
 }
 </pre></code>
-######分词结果：
+#####分词结果：
 <pre><code>
 Token: {name = void attr = KEYWORD loc = 1 file = C:\Users\zxh\Desktop\lmem.c }
 Token: {name = * attr = DELIMITER loc = 1 file = C:\Users\zxh\Desktop\lmem.c }
