@@ -2,6 +2,8 @@
 
 namespace TinyCompiler{
 	namespace Profiler{
+		ProfilerInstance::TimePoint ProfilerInstance::startTime;
+		ProfilerInstance::TimePoint ProfilerInstance::finishTime;
 
 		void ProfilerInstance::start(){
 			startTime = SteadyClock::now(); 
@@ -13,7 +15,7 @@ namespace TinyCompiler{
 			typedef std::chrono::duration<double> DurationTime;
 			DurationTime duringTime =
 				std::chrono::duration_cast<DurationTime>(finishTime - startTime);
-			os << "total " << duringTime.count() * 1000 << " miliseconds" << std::endl;
+			os << "total " << duringTime.count() * 1000 << " milliseconds" << std::endl;
 		}
 	}
 }

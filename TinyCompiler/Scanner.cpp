@@ -125,7 +125,7 @@ namespace TinyCompiler{
 			++(citer_);
 			this->phrase_ = ScanPhrase::IN_VARIALBE;
 		}else{
-			if (keyWordDict.count(tokenName) != 0){//变量为关键字
+			if (KeyWordDictInstance::getInstance()->count(tokenName) != 0){//变量为关键字
 				this->phrase_ = ScanPhrase::IN_KEYWORD;
 			}else{
 				tokenAttr = TokenAttr::VARIABLE;

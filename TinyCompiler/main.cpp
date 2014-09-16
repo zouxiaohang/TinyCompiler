@@ -8,7 +8,7 @@ using namespace std::chrono;
 
 int main(){
 	typedef TinyCompiler::Profiler::ProfilerInstance Profiler;
-	TinyCompiler::Scanner s("C:\\Users\\zxh\\Desktop\\nginx.c"); 
+	TinyCompiler::Scanner s("C:\\Users\\zxh\\Desktop\\test.c"); 
 	TinyCompiler::Token tok;
 	Profiler::start();
 	while ((tok = s.getNextToken())){

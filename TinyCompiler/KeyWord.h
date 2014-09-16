@@ -1,8 +1,10 @@
 #ifndef _KEYWORD_H_
 #define _KEYWORD_H_
 
+#include <memory>
 #include <set>
 #include <string>
+#include <utility>
 
 namespace TinyCompiler{
 
@@ -37,7 +39,13 @@ namespace TinyCompiler{
 	};
 
 	typedef std::set<std::string> KeyWordDict;
-	KeyWordDict keyWordDict = {
+	class KeyWordDictInstance{
+	private:
+		static std::shared_ptr<KeyWordDict> pInstance;
+	public:
+		static std::shared_ptr<KeyWordDict> getInstance();
+	};
+	/*KeyWordDict keyWordDict = {
 		{ "break" },
 		{ "case" },
 		{ "char" },
@@ -64,7 +72,7 @@ namespace TinyCompiler{
 		{ "unsigned" },
 		{ "void" },
 		{ "while" },
-	};
+	};*/
 }
 
 #endif
