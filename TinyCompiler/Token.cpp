@@ -28,11 +28,11 @@ namespace TinyCompiler{
 	}
 
 	void Token::dumpToken(std::ostream& os) const{
-		os << "Token: " << "{" << std::endl
-			<< "name = " << this->name_ << std::endl
-			<< "attr = " << (*(TokenAttrDictInstance::getInstance()))[this->tokenAttr_] << std::endl
-			<< "file = " << this->fileName_ << std::endl
-			<< "loc = " << this->location_ << std::endl
+		os << "Token: " << "{" 
+			<< "name = " << this->name_ << ", "
+			<< "attr = " << (*(TokenAttrDictInstance::getInstance()))[this->tokenAttr_] << ", "
+			<< "loc = " << this->location_ << ", "
+			<< "file = " << this->fileName_
 			<< "}" << std::endl;
 	}
 }
