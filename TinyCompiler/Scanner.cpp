@@ -28,7 +28,7 @@ namespace TinyCompiler{
 		this->code_ = "";
 		citer_ = this->code_.cbegin();
 		this->fileName_ = "";
-		this->phrase_ = ScanPhrase::BEGIN;
+		this->phrase_ = ScanPhrase::END;
 	}
 
 	bool Scanner::openFile(){
@@ -195,6 +195,7 @@ namespace TinyCompiler{
 				return tok;
 			}
 		}
+		clear();//清空分词器内部状态
 		return Token("", TokenAttr::UNKNOWN, "", -1);
 	}
 
@@ -204,6 +205,7 @@ namespace TinyCompiler{
 		while ((tok = getNextToken())){
 			toks.push_back(tok);
 		}
+		clear();//清空分词器内部状态
 		return toks;
 	}
 }
