@@ -78,12 +78,14 @@
   <ItemGroup>
     <ClCompile Include="KeyWord.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Profiler.cpp" />
     <ClCompile Include="Scanner.cpp" />
     <ClCompile Include="Token.cpp" />
     <ClCompile Include="TokenAttr.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="KeyWord.h" />
+    <ClInclude Include="Profiler.h" />
     <ClInclude Include="Scanner.h" />
     <ClInclude Include="Token.h" />
     <ClInclude Include="TokenAttr.h" />

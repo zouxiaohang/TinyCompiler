@@ -18,6 +18,9 @@
     <Filter Include="Scanner">
       <UniqueIdentifier>{100b9a5c-e7c2-476c-a69e-186c7d1e4bb0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Profiler">
+      <UniqueIdentifier>{b9567185-3426-4e0e-bc35-eb4c37339d36}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -35,6 +38,9 @@
     <ClCompile Include="KeyWord.cpp">
       <Filter>KeyWord</Filter>
     </ClCompile>
+    <ClCompile Include="Profiler.cpp">
+      <Filter>Profiler</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="KeyWord.h">
@@ -48,6 +54,9 @@
     </ClInclude>
     <ClInclude Include="Scanner.h">
       <Filter>Scanner</Filter>
+    </ClInclude>
+    <ClInclude Include="Profiler.h">
+      <Filter>Profiler</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

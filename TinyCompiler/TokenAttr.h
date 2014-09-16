@@ -24,6 +24,8 @@ namespace TinyCompiler{
 		typedef std::map<TokenAttr, std::string> TokenAttrDict;
 
 		static std::shared_ptr<TokenAttrDict> pInstance;
+
+		//TokenAttrDictInstance();
 	public:
 		static std::shared_ptr<TokenAttrDict> getInstance();
 	};
