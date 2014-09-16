@@ -8,7 +8,7 @@ int main(){
 
 	TinyCompiler::Scanner s("C:\\Users\\zxh\\Desktop\\test.c");
 	TinyCompiler::Token tok;
-	while ((tok = s.getNextToken()).getTokenAttr() != TinyCompiler::TokenAttr::UNKNOWN){
+	while ((tok = s.getNextToken())){
 		cout << tok.getName() << endl;
 		//tok.dumpToken();
 	}

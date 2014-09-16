@@ -194,7 +194,6 @@ namespace TinyCompiler{
 				auto tok = handleEnd(tokenName, tokenAttr, location_);
 				return tok;
 			}
-			//++citer_;
 		}
 		return Token("", TokenAttr::UNKNOWN, "", -1);
 	}
@@ -202,7 +201,7 @@ namespace TinyCompiler{
 	std::vector<Token> Scanner::getTokens(){
 		std::vector<Token> toks;
 		Token tok;
-		while ((tok = getNextToken()).getTokenAttr() != TokenAttr::UNKNOWN){
+		while ((tok = getNextToken())){
 			toks.push_back(tok);
 		}
 		return toks;

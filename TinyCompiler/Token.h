@@ -29,6 +29,12 @@ namespace TinyCompiler{
 			size_t location) 
 			:name_(name), tokenAttr_(tokenAttr), fileName_(fileName), location_(location){}
 
+		operator bool(){
+			if (tokenAttr_ == TokenAttr::UNKNOWN)
+				return false;
+			return true;
+		}
+
 		void setName(const std::string& name);
 		std::string getName() const;
 		void setTokenAttr(const TokenAttr tokenAttr);
