@@ -4,6 +4,15 @@ TinyCompiler
 
 ####编译环境：VS2013或以上
 
+####词法说明：在C98的基础上
+
+1.不支持科学计数法
+2.不支持数字加前后缀和八进制、十六进制表示法
+3.字符串中不支持转义
+4.不支持 每行最后加 \ 进行换行续写
+5.只支持单行注释\\，不支持\* *\
+
+
 #####词法测试代码(选择了lua源码中的lmem.c文件并经过了删除不符合TinyCompiler词法的部分)：
 <pre><code>
 void *luaM_growaux_ (lua_State *L, void *block, int *size, size_t size_elems,
