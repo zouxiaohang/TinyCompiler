@@ -72,7 +72,8 @@ namespace TinyCompiler{
 	public:
 		explicit Scanner(const std::string& fileName) 
 			:fileName_(fileName), phrase_(ScanPhrase::BEGIN), location_(1){
-			assert(openFile());
+			auto ret = openFile();
+			assert(ret);
 		}
 
 		//一次性将全部的词素分出来
