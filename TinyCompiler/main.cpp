@@ -20,6 +20,9 @@ int main(){
 	IFCheckStatementNode icsn;
 
 	SquenceStatementNode ssn;
+	ArithmeticSquenceStatementNode arssn;
+	AssignSquenceStatementNode asssn;
+	DefineSquenceStatementNode dssn;
 
 	std::vector<StatementNode*> svec;
 	svec.push_back(&sn);
@@ -29,9 +32,12 @@ int main(){
 	svec.push_back(&csn);
 	svec.push_back(&icsn);
 	svec.push_back(&ssn);
+	svec.push_back(&arssn);
+	svec.push_back(&asssn);
+	svec.push_back(&dssn);
 
 	for (const auto& node : svec){
-		node->printNode();
+		node->printNodeKind();
 	}
 	
 	//typedef TinyCompiler::Profiler::ProfilerInstance Profiler;

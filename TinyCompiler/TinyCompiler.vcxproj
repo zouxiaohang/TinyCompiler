@@ -92,6 +92,9 @@
     <ClInclude Include="StatementNode\LoopStatementNode\FORLoopStatementNode.h" />
     <ClInclude Include="StatementNode\LoopStatementNode\LoopStatementNode.h" />
     <ClInclude Include="StatementNode\LoopStatementNode\WHILELoopStatementNode.h" />
+    <ClInclude Include="StatementNode\SquenceStatementNode\ArithmeticSquenceStatementNode.h" />
+    <ClInclude Include="StatementNode\SquenceStatementNode\AssignSquenceStatementNode.h" />
+    <ClInclude Include="StatementNode\SquenceStatementNode\DefineSquenceStatementNode.h" />
     <ClInclude Include="StatementNode\SquenceStatementNode\SquenceStatementNode.h" />
     <ClInclude Include="StatementNode\StatementNode.h" />
     <ClInclude Include="StatementNode\StatementNodeInclude.h" />

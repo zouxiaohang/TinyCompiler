@@ -11,5 +11,8 @@
 #include "LoopStatementNode\WHILELoopStatementNode.h"
 
 #include "SquenceStatementNode\SquenceStatementNode.h"
+#include "SquenceStatementNode\ArithmeticSquenceStatementNode.h"
+#include "SquenceStatementNode\AssignSquenceStatementNode.h"
+#include "SquenceStatementNode\DefineSquenceStatementNode.h"
 
 #endif

@@ -94,5 +94,14 @@
     <ClInclude Include="StatementNode\StatementNodeInclude.h">
       <Filter>StatementNode</Filter>
     </ClInclude>
+    <ClInclude Include="StatementNode\SquenceStatementNode\ArithmeticSquenceStatementNode.h">
+      <Filter>StatementNode\SquenceStatementNode</Filter>
+    </ClInclude>
+    <ClInclude Include="StatementNode\SquenceStatementNode\AssignSquenceStatementNode.h">
+      <Filter>StatementNode\SquenceStatementNode</Filter>
+    </ClInclude>
+    <ClInclude Include="StatementNode\SquenceStatementNode\DefineSquenceStatementNode.h">
+      <Filter>StatementNode\SquenceStatementNode</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

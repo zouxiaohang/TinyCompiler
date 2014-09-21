@@ -9,9 +9,9 @@ namespace TinyCompiler{
 	//the base class of the statement
 	class StatementNode{
 	public:
-		std::string name;
+		//std::string name;
 	public:
-		virtual void printNode(){ std::cout << "StatementNode" << std::endl; }
+		virtual void printNodeKind(){ std::cout << "StatementNode" << std::endl; }
 		virtual ~StatementNode(){};
 	};
 }
