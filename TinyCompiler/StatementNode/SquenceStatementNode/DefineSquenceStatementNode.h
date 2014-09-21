@@ -10,6 +10,8 @@ namespace TinyCompiler{
 	public:
 		virtual void printNodeKind(){ std::cout << "DefineSquenceStatementNode" << std::endl; }
 	};
+
+	StatementNodeKind DefineSquenceStatementNode::kind_ = StatementNodeKind::DEFINESQUENCESTATEMENTNODE;
 }
 
 #endif

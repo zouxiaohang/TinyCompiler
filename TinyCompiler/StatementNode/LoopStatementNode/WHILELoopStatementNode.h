@@ -10,5 +10,7 @@ namespace TinyCompiler{
 	public:
 		virtual void printNode(){ std::cout << "WhileLoopStatementNode" << std::endl; }
 	};
+
+	StatementNodeKind WhileLoopStatementNode::kind_ = StatementNodeKind::WHILELOOPSTATEMENTNODE;
 }
 #endif

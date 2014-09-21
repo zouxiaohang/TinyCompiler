@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <memory>
 
 #include "Profiler\Profiler.h"
 #include "Scanner\Scanner.h"
@@ -24,7 +25,7 @@ int main(){
 	AssignSquenceStatementNode asssn;
 	DefineSquenceStatementNode dssn;
 
-	std::vector<StatementNode*> svec;
+	std::vector<StatementNode *> svec;
 	svec.push_back(&sn);
 	svec.push_back(&lsn);
 	svec.push_back(&flsn);
