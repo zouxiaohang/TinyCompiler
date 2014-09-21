@@ -8,7 +8,7 @@
 
 namespace TinyCompiler{
 
-	//代码定义的关键字
+	//定义代码的关键字
 	enum class KeyWord{
 		BREAK,
 		CASE,
@@ -45,34 +45,6 @@ namespace TinyCompiler{
 	public:
 		static std::shared_ptr<KeyWordDict> getInstance();
 	};
-	/*KeyWordDict keyWordDict = {
-		{ "break" },
-		{ "case" },
-		{ "char" },
-		{ "const" },
-		{ "continue" },
-		{ "default" },
-		{ "do" },
-		{ "double" },
-		{ "else" },
-		{ "enum" },
-		{ "float" },
-		{ "for" },
-		{ "if" },
-		{ "int" },
-		{ "long" },
-		{ "return" },
-		{ "short" },
-		{ "signed" },
-		{ "static" },
-		{ "struct" },
-		{ "switch" },
-		{ "typedef" },
-		{ "union" },
-		{ "unsigned" },
-		{ "void" },
-		{ "while" },
-	};*/
 }
 
 #endif
