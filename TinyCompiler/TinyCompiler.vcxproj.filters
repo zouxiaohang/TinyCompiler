@@ -21,6 +21,18 @@
     <Filter Include="Profiler">
       <UniqueIdentifier>{b9567185-3426-4e0e-bc35-eb4c37339d36}</UniqueIdentifier>
     </Filter>
+    <Filter Include="StatementNode">
+      <UniqueIdentifier>{a1e70a14-afc4-4b49-bc9b-d238f6b75109}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="StatementNode\SquenceStatementNode">
+      <UniqueIdentifier>{41b9a602-a73c-488b-8a4f-0a0c1641c84c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="StatementNode\LoopStatementNode">
+      <UniqueIdentifier>{361856db-e5bd-4d29-a3ad-80c2b3a17056}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="StatementNode\CheckStatementNode">
+      <UniqueIdentifier>{36778e79-035d-4096-b1d7-2fecf53bc7c0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -57,6 +69,18 @@
     </ClInclude>
     <ClInclude Include="Token\TokenAttr.h">
       <Filter>Token</Filter>
+    </ClInclude>
+    <ClInclude Include="StatementNode\StatementNode.h">
+      <Filter>StatementNode</Filter>
+    </ClInclude>
+    <ClInclude Include="StatementNode\SquenceStatementNode\SquenceStatementNode.h">
+      <Filter>StatementNode\SquenceStatementNode</Filter>
+    </ClInclude>
+    <ClInclude Include="StatementNode\LoopStatementNode\LoopStatementNode.h">
+      <Filter>StatementNode\LoopStatementNode</Filter>
+    </ClInclude>
+    <ClInclude Include="StatementNode\CheckStatementNode\CheckStatementNode.h">
+      <Filter>StatementNode\CheckStatementNode</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
