@@ -160,7 +160,7 @@ namespace TinyCompiler{
 		std::string tokenName;
 		TokenAttr tokenAttr = TokenAttr::UNKNOWN;
 
-		skipBlank();//Ìø¹ýÇ°µ¼¿Õ°×
+		skipBlank();
 		while (citer_ != code_.cend() && *(citer_) != EOF){
 			switch (this->phrase_){
 			case ScanPhrase::BEGIN:
