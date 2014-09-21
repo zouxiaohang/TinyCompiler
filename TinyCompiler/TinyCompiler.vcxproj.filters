@@ -26,37 +26,37 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Token.cpp">
-      <Filter>Token</Filter>
-    </ClCompile>
-    <ClCompile Include="Scanner.cpp">
-      <Filter>Scanner</Filter>
-    </ClCompile>
-    <ClCompile Include="TokenAttr.cpp">
-      <Filter>Token</Filter>
-    </ClCompile>
-    <ClCompile Include="KeyWord.cpp">
+    <ClCompile Include="KeyWord\KeyWord.cpp">
       <Filter>KeyWord</Filter>
     </ClCompile>
-    <ClCompile Include="Profiler.cpp">
+    <ClCompile Include="Profiler\Profiler.cpp">
       <Filter>Profiler</Filter>
+    </ClCompile>
+    <ClCompile Include="Scanner\Scanner.cpp">
+      <Filter>Scanner</Filter>
+    </ClCompile>
+    <ClCompile Include="Token\Token.cpp">
+      <Filter>Token</Filter>
+    </ClCompile>
+    <ClCompile Include="Token\TokenAttr.cpp">
+      <Filter>Token</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="KeyWord.h">
+    <ClInclude Include="KeyWord\KeyWord.h">
       <Filter>KeyWord</Filter>
     </ClInclude>
-    <ClInclude Include="Token.h">
-      <Filter>Token</Filter>
+    <ClInclude Include="Profiler\Profiler.h">
+      <Filter>Profiler</Filter>
     </ClInclude>
-    <ClInclude Include="TokenAttr.h">
-      <Filter>Token</Filter>
-    </ClInclude>
-    <ClInclude Include="Scanner.h">
+    <ClInclude Include="Scanner\Scanner.h">
       <Filter>Scanner</Filter>
     </ClInclude>
-    <ClInclude Include="Profiler.h">
-      <Filter>Profiler</Filter>
+    <ClInclude Include="Token\Token.h">
+      <Filter>Token</Filter>
+    </ClInclude>
+    <ClInclude Include="Token\TokenAttr.h">
+      <Filter>Token</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

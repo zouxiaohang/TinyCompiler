@@ -2,7 +2,7 @@
 #include <fstream>
 #include <iostream>
 
-#include "KeyWord.h"
+#include "../KeyWord/KeyWord.h"
 #include "Scanner.h"
 
 //extern TinyCompiler::KeyWordDict keyWordDict;

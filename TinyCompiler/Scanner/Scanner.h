@@ -5,7 +5,7 @@
 #include <vector>
 #include <string>
 
-#include "Token.h"
+#include "../Token/Token.h"
 
 namespace TinyCompiler{
 

@@ -1,8 +1,8 @@
 #include <iostream>
 #include <fstream>
 
-#include "Profiler.h"
-#include "Scanner.h"
+#include "Profiler\Profiler.h"
+#include "Scanner\Scanner.h"
 
 using namespace std;
 using namespace std::chrono;
@@ -18,7 +18,7 @@ int main(){
 
 	Profiler::start();
 	while ((tok = s.getNextToken())){
-		//cout << tok.getName() << endl;
+		cout << tok.getName() << endl;
 		//tok.dumpToken();
 	}
 	Profiler::finish();

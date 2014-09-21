@@ -76,19 +76,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="KeyWord.cpp" />
+    <ClCompile Include="KeyWord\KeyWord.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Profiler.cpp" />
-    <ClCompile Include="Scanner.cpp" />
-    <ClCompile Include="Token.cpp" />
-    <ClCompile Include="TokenAttr.cpp" />
+    <ClCompile Include="Profiler\Profiler.cpp" />
+    <ClCompile Include="Scanner\Scanner.cpp" />
+    <ClCompile Include="Token\Token.cpp" />
+    <ClCompile Include="Token\TokenAttr.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="KeyWord.h" />
-    <ClInclude Include="Profiler.h" />
-    <ClInclude Include="Scanner.h" />
-    <ClInclude Include="Token.h" />
-    <ClInclude Include="TokenAttr.h" />
+    <ClInclude Include="KeyWord\KeyWord.h" />
+    <ClInclude Include="Profiler\Profiler.h" />
+    <ClInclude Include="Scanner\Scanner.h" />
+    <ClInclude Include="Token\Token.h" />
+    <ClInclude Include="Token\TokenAttr.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
