@@ -6,7 +6,8 @@ namespace TinyCompiler{
 	
 	//squence statement class
 	class SquenceStatementNode : public StatementNode{
-
+	public:
+		virtual void printNode(){ std::cout << "SquenceStatementNode" << std::endl; }
 	};
 }
 

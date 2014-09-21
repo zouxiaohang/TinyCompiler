@@ -3,27 +3,53 @@
 
 #include "Profiler\Profiler.h"
 #include "Scanner\Scanner.h"
+#include "StatementNode\StatementNodeInclude.h"
 
 using namespace std;
 using namespace std::chrono;
 
 int main(){
-	typedef TinyCompiler::Profiler::ProfilerInstance Profiler;
-	TinyCompiler::Scanner s("C:\\Users\\zxh\\Desktop\\nginx.c"); 
-	TinyCompiler::Token tok;
+	using namespace TinyCompiler;
+	StatementNode sn;
 
-	ofstream out("C:\\Users\\zxh\\Desktop\\output.c",
-		ostream::out | ofstream::trunc);
+	LoopStatementNode lsn;
+	FORLoopStatementNode flsn;
+	WhileLoopStatementNode wlsn;
 
+	CheckStatementNode csn;
+	IFCheckStatementNode icsn;
 
-	Profiler::start();
-	while ((tok = s.getNextToken())){
-		cout << tok.getName() << endl;
-		//tok.dumpToken();
+	SquenceStatementNode ssn;
+
+	std::vector<StatementNode*> svec;
+	svec.push_back(&sn);
+	svec.push_back(&lsn);
+	svec.push_back(&flsn);
+	svec.push_back(&wlsn);
+	svec.push_back(&csn);
+	svec.push_back(&icsn);
+	svec.push_back(&ssn);
+
+	for (const auto& node : svec){
+		node->printNode();
 	}
-	Profiler::finish();
-	Profiler::dumpDuringTime();
-	out.close();
+	
+	//typedef TinyCompiler::Profiler::ProfilerInstance Profiler;
+	//TinyCompiler::Scanner s("C:\\Users\\zxh\\Desktop\\nginx.c"); 
+	//TinyCompiler::Token tok;
+
+	//ofstream out("C:\\Users\\zxh\\Desktop\\output.c",
+	//	ostream::out | ofstream::trunc);
+
+
+	//Profiler::start();
+	//while ((tok = s.getNextToken())){
+	//	cout << tok.getName() << endl;
+	//	//tok.dumpToken();
+	//}
+	//Profiler::finish();
+	//Profiler::dumpDuringTime();
+	//out.close();
 	system("pause");
 	return 0;
 }

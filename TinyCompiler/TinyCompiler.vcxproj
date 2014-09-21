@@ -88,9 +88,13 @@
     <ClInclude Include="Profiler\Profiler.h" />
     <ClInclude Include="Scanner\Scanner.h" />
     <ClInclude Include="StatementNode\CheckStatementNode\CheckStatementNode.h" />
+    <ClInclude Include="StatementNode\CheckStatementNode\IFCheckStatementNode.h" />
+    <ClInclude Include="StatementNode\LoopStatementNode\FORLoopStatementNode.h" />
     <ClInclude Include="StatementNode\LoopStatementNode\LoopStatementNode.h" />
+    <ClInclude Include="StatementNode\LoopStatementNode\WHILELoopStatementNode.h" />
     <ClInclude Include="StatementNode\SquenceStatementNode\SquenceStatementNode.h" />
     <ClInclude Include="StatementNode\StatementNode.h" />
+    <ClInclude Include="StatementNode\StatementNodeInclude.h" />
     <ClInclude Include="Token\Token.h" />
     <ClInclude Include="Token\TokenAttr.h" />
   </ItemGroup>

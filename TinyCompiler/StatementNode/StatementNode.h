@@ -1,6 +1,7 @@
 #ifndef _STATEMENT_NODE_H_
 #define _STATEMENT_NODE_H_
 
+#include <iostream>
 #include <string>
 
 namespace TinyCompiler{
@@ -10,7 +11,8 @@ namespace TinyCompiler{
 	public:
 		std::string name;
 	public:
-		virtual ~StatementNode();
+		virtual void printNode(){ std::cout << "StatementNode" << std::endl; }
+		virtual ~StatementNode(){};
 	};
 }
 

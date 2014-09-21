@@ -82,5 +82,17 @@
     <ClInclude Include="StatementNode\CheckStatementNode\CheckStatementNode.h">
       <Filter>StatementNode\CheckStatementNode</Filter>
     </ClInclude>
+    <ClInclude Include="StatementNode\CheckStatementNode\IFCheckStatementNode.h">
+      <Filter>StatementNode\CheckStatementNode</Filter>
+    </ClInclude>
+    <ClInclude Include="StatementNode\LoopStatementNode\FORLoopStatementNode.h">
+      <Filter>StatementNode\LoopStatementNode</Filter>
+    </ClInclude>
+    <ClInclude Include="StatementNode\LoopStatementNode\WHILELoopStatementNode.h">
+      <Filter>StatementNode\LoopStatementNode</Filter>
+    </ClInclude>
+    <ClInclude Include="StatementNode\StatementNodeInclude.h">
+      <Filter>StatementNode</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

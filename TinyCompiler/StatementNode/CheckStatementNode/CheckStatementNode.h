@@ -6,7 +6,8 @@ namespace TinyCompiler{
 
 	//check statement class
 	class CheckStatementNode : public StatementNode{
-
+	public:
+		virtual void printNode(){ std::cout << "CheckStatementNode" << std::endl; }
 	};
 }
 

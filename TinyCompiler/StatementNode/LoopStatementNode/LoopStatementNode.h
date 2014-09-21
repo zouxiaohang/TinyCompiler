@@ -6,7 +6,8 @@ namespace TinyCompiler{
 
 	//loop statement class
 	class LoopStatementNode : public StatementNode{
-
+	public:
+		virtual void printNode(){ std::cout << "LoopStatementNode" << std::endl; }
 	};
 }
 
