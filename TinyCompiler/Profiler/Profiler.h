@@ -11,8 +11,6 @@
 namespace TinyCompiler{
 
 	namespace Profiler{
-		//static std::chrono::steady_clock::time_point startTime;
-		//static std::chrono::steady_clock::time_point finishTime;
 		class ProfilerInstance{
 		public:
 			typedef std::chrono::steady_clock SteadyClock;

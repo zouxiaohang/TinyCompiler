@@ -5,8 +5,6 @@
 #include "../KeyWord/KeyWord.h"
 #include "Scanner.h"
 
-//extern TinyCompiler::KeyWordDict keyWordDict;
-
 namespace TinyCompiler{
 	void Scanner::setPhrase(const ScanPhrase phrase){
 		this->phrase_ = phrase;
@@ -39,7 +37,7 @@ namespace TinyCompiler{
 			in.seekg(0, in.end);
 			size_t length = in.tellg();
 			in.seekg(0, in.beg);
-			//调整code_的空间以完全容纳全部源码
+			//resize the code_, so it can hold all source
 			this->code_.resize(length);
 			in.read(&(this->code_[0]), this->code_.size());
 			citer_ = code_.cbegin();
@@ -70,13 +68,13 @@ namespace TinyCompiler{
 	}
 
 	void Scanner::handleBegin(std::string& tokenName, TokenAttr& tokenAttr){
-		if (std::isdigit(*(citer_))){//是数字
+		if (std::isdigit(*(citer_))){//is a number
 			this->phrase_ = ScanPhrase::IN_INTEGER;
-		}else if(std::isalpha(*(citer_)) || *citer_ == '_'){//是字母或下划线
+		}else if(std::isalpha(*(citer_)) || *citer_ == '_'){//is a letter or an underline 
 			this->phrase_ = ScanPhrase::IN_VARIALBE;
-		}else if (*(citer_) == '\"' || *(citer_) == '\''){//是双引号或单引号
+		}else if (*(citer_) == '\"' || *(citer_) == '\''){//is a single/double quotation marks
 			this->phrase_ = ScanPhrase::IN_STRING;
-		}else{//其他情况下先视为单分隔符
+		}else{//in other scenes, wo first think it is a single delimiter
 			this->phrase_ = ScanPhrase::IN_SINGLEDELIMITER;
 		}
 		tokenName += *(citer_);
@@ -96,7 +94,7 @@ namespace TinyCompiler{
 		}
 	}
 	void Scanner::handleReal(std::string& tokenName, TokenAttr& tokenAttr){
-		if (isdigit(*(citer_))){//任然是数字
+		if (isdigit(*(citer_))){//also a number
 			tokenName += *(citer_);
 			++(citer_);
 			this->phrase_ = ScanPhrase::IN_REAL;
@@ -106,11 +104,11 @@ namespace TinyCompiler{
 		}
 	}
 	void Scanner::handleInteger(std::string& tokenName, TokenAttr& tokenAttr){
-		if (isdigit(*(citer_))){//任然是数字
+		if (isdigit(*(citer_))){//also a number
 			tokenName += *(citer_);
 			++(citer_);
 			this->phrase_ = ScanPhrase::IN_INTEGER;
-		}else if (*(citer_) == '.'){//出现小数点
+		}else if (*(citer_) == '.'){//a dot appears
 			tokenName += *(citer_);
 			++(citer_);
 			this->phrase_ = ScanPhrase::IN_REAL;
@@ -120,12 +118,12 @@ namespace TinyCompiler{
 		}
 	}
 	void Scanner::handleVariable(std::string& tokenName, TokenAttr& tokenAttr){
-		if (std::isalpha(*(citer_)) || *citer_ == '_'){//任然是字母或下划线
+		if (std::isalpha(*(citer_)) || *citer_ == '_'){//also a letter or an underline 
 			tokenName += *(citer_);
 			++(citer_);
 			this->phrase_ = ScanPhrase::IN_VARIALBE;
 		}else{
-			if (KeyWordDictInstance::getInstance()->count(tokenName) != 0){//变量为关键字
+			if (KeyWordDictInstance::getInstance()->count(tokenName) != 0){//is a key word
 				this->phrase_ = ScanPhrase::IN_KEYWORD;
 			}else{
 				tokenAttr = TokenAttr::VARIABLE;
@@ -138,7 +136,7 @@ namespace TinyCompiler{
 		this->phrase_ = ScanPhrase::END;
 	}
 	void Scanner::handleSingleDelimiter(std::string& tokenName, TokenAttr& tokenAttr){
-		if (isDoubleDelimter(*citer_)){//是双分隔符
+		if (isDoubleDelimter(*citer_)){//is a double delimiter
 			tokenName += *citer_;
 			++citer_;
 			this->phrase_ = ScanPhrase::IN_DOUBLEDELIMITER;
@@ -195,7 +193,7 @@ namespace TinyCompiler{
 				return tok;
 			}
 		}
-		clear();//清空分词器内部状态
+		clear();//clear the state of the scanner
 		return Token("", TokenAttr::UNKNOWN, "", -1);
 	}
 
@@ -205,7 +203,7 @@ namespace TinyCompiler{
 		while ((tok = getNextToken())){
 			toks.push_back(tok);
 		}
-		clear();//清空分词器内部状态
+		clear();//clear the state of the scanner
 		return toks;
 	}
 }

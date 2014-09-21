@@ -4,7 +4,7 @@
 #include "../StatementNode.h"
 namespace TinyCompiler{
 
-	//≈–∂œ”Ôæ‰¿‡
+	//check statement class
 	class CheckStatementNode : public StatementNode{
 
 	};

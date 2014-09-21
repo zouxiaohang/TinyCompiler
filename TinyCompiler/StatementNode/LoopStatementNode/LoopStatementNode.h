@@ -4,7 +4,7 @@
 #include "../StatementNode.h"
 namespace TinyCompiler{
 
-	//—≠ª∑”Ôæ‰¿‡
+	//loop statement class
 	class LoopStatementNode : public StatementNode{
 
 	};

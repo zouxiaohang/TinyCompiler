@@ -8,16 +8,11 @@
 
 namespace TinyCompiler{
 
-	//词素类
 	class Token{
 	private:
-		//词素的名字
 		std::string name_;
-		//词素的属性
 		TokenAttr tokenAttr_;
-		//词素所在的文件
 		std::string fileName_;
-		//文件中的位置
 		size_t location_;
 
 	public:

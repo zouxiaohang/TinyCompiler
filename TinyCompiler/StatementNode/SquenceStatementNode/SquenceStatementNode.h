@@ -4,7 +4,7 @@
 #include "../StatementNode.h"
 namespace TinyCompiler{
 	
-	//À≥–Ú”Ôæ‰¿‡
+	//squence statement class
 	class SquenceStatementNode : public StatementNode{
 
 	};

@@ -5,7 +5,7 @@
 
 namespace TinyCompiler{
 
-	//Óï¾ä¿éµÄ»ùÀà
+	//the base class of the statement
 	class StatementNode{
 	public:
 		std::string name;

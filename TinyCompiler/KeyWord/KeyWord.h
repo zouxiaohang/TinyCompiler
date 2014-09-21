@@ -8,7 +8,7 @@
 
 namespace TinyCompiler{
 
-	//定义代码的关键字
+	//define the key word of the source language
 	enum class KeyWord{
 		BREAK,
 		CASE,
