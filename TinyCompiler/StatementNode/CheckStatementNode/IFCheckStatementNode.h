@@ -9,9 +9,7 @@ namespace TinyCompiler{
 	class IFCheckStatementNode : public CheckStatementNode{
 	public:
 		virtual void printNode(){ std::cout << "IFCheckStatementNode" << std::endl; }
-	};
-
-	StatementNodeKind IFCheckStatementNode::kind_ = StatementNodeKind::IFCHECKSTATEMENTNODE;
+        StatementNodeKind IFCheckStatementNode::kind_ = StatementNodeKind::IFCHECKSTATEMENTNODE;
+    };
 }
-
 #endif

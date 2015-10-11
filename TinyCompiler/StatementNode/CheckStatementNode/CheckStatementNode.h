@@ -8,9 +8,7 @@ namespace TinyCompiler{
 	class CheckStatementNode : public StatementNode{
 	public:
 		virtual void printNode(){ std::cout << "CheckStatementNode" << std::endl; }
-	};
-
-	StatementNodeKind CheckStatementNode::kind_ = StatementNodeKind::CHECKSTATEMENTNODE;
+        StatementNodeKind CheckStatementNode::kind_ = StatementNodeKind::CHECKSTATEMENTNODE;
+    };
 }
-
 #endif

@@ -8,9 +8,7 @@ namespace TinyCompiler{
 	class LoopStatementNode : public StatementNode{
 	public:
 		virtual void printNode(){ std::cout << "LoopStatementNode" << std::endl; }
-	};
-
-	StatementNodeKind LoopStatementNode::kind_ = StatementNodeKind::LOOPSTATEMENTNODE;
+        StatementNodeKind LoopStatementNode::kind_ = StatementNodeKind::LOOPSTATEMENTNODE;
+    };
 }
-
 #endif
