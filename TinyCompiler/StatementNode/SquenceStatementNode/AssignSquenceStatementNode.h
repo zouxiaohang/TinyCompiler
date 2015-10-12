@@ -9,9 +9,7 @@ namespace TinyCompiler{
 	class AssignSquenceStatementNode :public SquenceStatementNode{
 	public:
 		virtual void printNodeKind(){ std::cout << "AssignSquenceStatementNode" << std::endl; }
-	};
-
-	StatementNodeKind AssignSquenceStatementNode::kind_ = StatementNodeKind::ASSIGNSQUENCESTATEMENTNODE;
+        StatementNodeKind AssignSquenceStatementNode::kind_ = StatementNodeKind::ASSIGNSQUENCESTATEMENTNODE;
+    };
 }
-
 #endif
